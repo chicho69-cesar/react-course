@@ -1,0 +1,33 @@
+{
+  "name": "react-course",
+  "version": "1.0.0",
+  "description": "Curso de React de Cero a Experto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "sui-mono commit"
+  },
+  "workspaces": [
+    "projects/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chicho69-cesar/react-course.git"
+  },
+  "keywords": [
+    "React",
+    "Web",
+    "Front-End",
+    "JavaScript"
+  ],
+  "author": "Cesar Villalobos Olmos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chicho69-cesar/react-course/issues"
+  },
+  "homepage": "https://github.com/chicho69-cesar/react-course#readme",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "@s-ui/mono": "2.45.0"
+  }
+}
