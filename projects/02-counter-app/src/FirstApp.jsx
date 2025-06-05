@@ -6,6 +6,7 @@ export const FirstApp = ({ title, subtitle, name }) => {
     <Fragment>
       <h1 data-testid="test-title">{title}</h1>
       <p>{subtitle}</p>
+      <p>{subtitle}</p>
       <p>{name}</p>
     </Fragment>
   )
