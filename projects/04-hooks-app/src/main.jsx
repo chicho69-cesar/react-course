@@ -2,6 +2,7 @@ import './index.css'
 
 // import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router'
 
 // import App from './App.jsx'
 // import { CounterApp } from './01-use-state/CounterApp'
@@ -17,22 +18,26 @@ import { createRoot } from 'react-dom/client'
 // import { CallbackHook } from './06-memoization/CallbackHook'
 // import { MemoFather } from './07-homework-memo/MemoFather'
 import { ReducerApp } from './08-use-reducer/ReducerApp'
+import { MainApp } from './09-use-context/MainApp'
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
-    // <App />
-    // <CounterApp />
-    // <CounterWithCustomHook />
-    // <SimpleForm />
-    // <FormWithCustomHook />
-    // <Coords />
-    // <MultipleCustomHooks />
-    // <FocusScreen />
-    // <LayoutEffect />
-    // <Memoize />
-    // <MemoHook />
-    // <CallbackHook />
-    // <MemoFather />
-    <ReducerApp />
-  // </StrictMode>,
+  <BrowserRouter>
+    {/* <StrictMode> */}
+      {/* <App /> */}
+      {/* <CounterApp /> */}
+      {/* <CounterWithCustomHook /> */}
+      {/* <SimpleForm /> */}
+      {/* <FormWithCustomHook /> */}
+      {/* <Coords /> */}
+      {/* <MultipleCustomHooks /> */}
+      {/* <FocusScreen /> */}
+      {/* <LayoutEffect /> */}
+      {/* <Memoize /> */}
+      {/* <MemoHook /> */}
+      {/* <CallbackHook /> */}
+      {/* <MemoFather /> */}
+      {/* <ReducerApp /> */}
+      <MainApp />
+    {/* </StrictMode> */}
+  </BrowserRouter>
 )
