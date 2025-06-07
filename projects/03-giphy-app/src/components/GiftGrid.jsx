@@ -14,7 +14,7 @@ export const GiftGrid = ({ category }) => {
         <h2>Cargando...</h2>
       )}
 
-      <div className="card-grid">
+      <div className="card-grid" aria-label="card-grid">
         {gifts.map((gift) => (
           <GiftItem
             key={gift.id}

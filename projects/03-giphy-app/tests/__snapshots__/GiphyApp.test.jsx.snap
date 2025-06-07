@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test on <GiphyApp /> should render the component correctly 1`] = `
+<div>
+  <h1>
+    Giphy App!
+  </h1>
+  <form
+    aria-label="form"
+  >
+    <input
+      placeholder="Buscar Gifts"
+      type="text"
+      value=""
+    />
+  </form>
+  <h3>
+    Dragon Ball
+  </h3>
+  <h2>
+    Cargando...
+  </h2>
+  <div
+    aria-label="card-grid"
+    class="card-grid"
+  />
+</div>
+`;
