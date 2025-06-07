@@ -15,7 +15,8 @@ import { createRoot } from 'react-dom/client'
 // import { Memoize } from './06-memoization/Memoize'
 // import { MemoHook } from './06-memoization/MemoHook'
 // import { CallbackHook } from './06-memoization/CallbackHook'
-import { MemoFather } from './07-homework-memo/MemoFather'
+// import { MemoFather } from './07-homework-memo/MemoFather'
+import { ReducerApp } from './08-use-reducer/ReducerApp'
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
@@ -31,6 +32,7 @@ createRoot(document.getElementById('root')).render(
     // <Memoize />
     // <MemoHook />
     // <CallbackHook />
-    <MemoFather />
+    // <MemoFather />
+    <ReducerApp />
   // </StrictMode>,
 )
