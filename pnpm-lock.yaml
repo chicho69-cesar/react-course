@@ -140,6 +140,43 @@ importers:
         specifier: 3.6.20
         version: 3.6.20
 
+  projects/04-hooks-app:
+    dependencies:
+      react:
+        specifier: 19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: 19.1.0
+        version: 19.1.0(react@19.1.0)
+    devDependencies:
+      '@eslint/js':
+        specifier: 9.25.0
+        version: 9.25.0
+      '@types/react':
+        specifier: 19.1.2
+        version: 19.1.2
+      '@types/react-dom':
+        specifier: 19.1.2
+        version: 19.1.2(@types/react@19.1.2)
+      '@vitejs/plugin-react-swc':
+        specifier: 3.9.0
+        version: 3.9.0(vite@6.3.5(@types/node@22.15.29))
+      eslint:
+        specifier: 9.25.0
+        version: 9.25.0
+      eslint-plugin-react-hooks:
+        specifier: 5.2.0
+        version: 5.2.0(eslint@9.25.0)
+      eslint-plugin-react-refresh:
+        specifier: 0.4.19
+        version: 0.4.19(eslint@9.25.0)
+      globals:
+        specifier: 16.0.0
+        version: 16.0.0
+      vite:
+        specifier: 6.3.5
+        version: 6.3.5(@types/node@22.15.29)
+
 packages:
 
   '@ampproject/remapping@2.3.0':
