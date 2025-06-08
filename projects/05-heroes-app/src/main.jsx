@@ -1,10 +1,18 @@
+import './index.css'
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { BrowserRouter } from 'react-router'
 
-createRoot(document.getElementById('root')).render(
+import HeroesApp from './HeroesApp.jsx'
+
+const rootItem = document.getElementById('root')
+const root = createRoot(rootItem)
+
+root.render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <HeroesApp />
+    </BrowserRouter>
   </StrictMode>,
 )
