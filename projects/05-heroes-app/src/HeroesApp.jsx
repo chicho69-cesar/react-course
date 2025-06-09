@@ -1,8 +1,11 @@
+import { AuthProvider } from './auth/context'
+import { AppRouter } from './router/AppRouter'
+
 function HeroesApp() {
   return (
-    <h1>
-      Hola Mundo!!!
-    </h1>
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
   )
 }
 
