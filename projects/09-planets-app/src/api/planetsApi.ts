@@ -5,9 +5,10 @@ export const planetsApi = axios.create({
 })
 
 planetsApi.interceptors.request.use((config) => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(config)
+      // reject(new Error('Error: Request timed out'))
     }, 2000)
   })
 })
