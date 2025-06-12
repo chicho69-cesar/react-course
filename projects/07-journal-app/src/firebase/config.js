@@ -7,7 +7,7 @@ import { getEnvironments } from '../helpers'
 const {
   VITE_APIKEY,
   VITE_AUTHDOMAIN,
-  VITE_DATABASEURL,
+  // VITE_DATABASEURL,
   VITE_PROJECTID,
   VITE_STORAGEBUCKET,
   VITE_MESSAGINGSENDERID,
@@ -17,7 +17,7 @@ const {
 const firebaseConfig = {
   apiKey: VITE_APIKEY,
   authDomain: VITE_AUTHDOMAIN,
-  databaseURL: VITE_DATABASEURL,
+  // databaseURL: VITE_DATABASEURL,
   projectId: VITE_PROJECTID,
   storageBucket: VITE_STORAGEBUCKET,
   messagingSenderId: VITE_MESSAGINGSENDERID,

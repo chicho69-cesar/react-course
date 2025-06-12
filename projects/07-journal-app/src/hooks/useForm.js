@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 
-export const useForm = (initialForm = {}, initialFormValidations = {}) => {
+export const useForm = (initialForm = {}, formValidations = {}) => {
   const [formState, setFormState] = useState(initialForm)
-  const [formValidations, setFormValidations] = useState(initialFormValidations)
+  const [formValidation, setFormValidation] = useState({})
 
   useEffect(() => {
     createValidators()
@@ -14,16 +14,17 @@ export const useForm = (initialForm = {}, initialFormValidations = {}) => {
   }, [initialForm])
 
   const isFormValid = useMemo(() => {
-    for (const formValue of Object.keys(formValidations)) {
-      if (formValidations[formValue] !== null) return false
+    for (const formValue of Object.keys(formValidation)) {
+      if (formValidation[formValue] !== null) return false
     }
 
     return true
-  }, [formValidations])
+  }, [formValidation])
+
 
   const onInputChange = ({ target }) => {
     const { name, value } = target
-
+    
     setFormState({
       ...formState,
       [name]: value
@@ -32,18 +33,17 @@ export const useForm = (initialForm = {}, initialFormValidations = {}) => {
 
   const onResetForm = () => {
     setFormState(initialForm)
-    setFormValidations(initialFormValidations)
   }
 
   const createValidators = () => {
     const formCheckedValues = {}
 
-    for (const formValue of Object.keys(formValidations)) {
-      const [fn, errorMessage] = formValidations[formValue]
-      formCheckedValues[`${formValue}Valid`] = fn(formState[formValue]) ? null : errorMessage
+    for (const formField of Object.keys(formValidations)) {
+      const [fn, errorMessage] = formValidations[formField]
+      formCheckedValues[`${formField}Valid`] = fn(formState[formField]) ? null : errorMessage
     }
 
-    setFormValidations(formCheckedValues)
+    setFormValidation(formCheckedValues)
   }
 
   return {
@@ -52,8 +52,7 @@ export const useForm = (initialForm = {}, initialFormValidations = {}) => {
     onInputChange,
     onResetForm,
 
-    ...formValidations,
-    formValidations,
+    ...formValidation,
     isFormValid
   }
 }
