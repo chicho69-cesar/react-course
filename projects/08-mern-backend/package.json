@@ -3,11 +3,27 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js",
+    "dev": "nodemon --watch index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cesar Villalobos Olmos",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "nodemon": "3.1.10"
+  },
+  "dependencies": {
+    "bcryptjs": "3.0.2",
+    "cors": "2.8.5",
+    "date-fns": "4.1.0",
+    "dotenv": "16.5.0",
+    "express": "5.1.0",
+    "express-validator": "7.2.1",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "8.15.1"
+  }
 }
