@@ -91,7 +91,7 @@ export const updateEvent = async (req = request, res = response) => {
     }
 
     const newEvent = {
-      ...event,
+      ...eventToUpdate,
       user: uid,
     }
 

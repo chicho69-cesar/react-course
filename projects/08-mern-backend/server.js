@@ -16,8 +16,6 @@ class Server {
     this.configureDB()
     // Routes
     this.routes()
-    // Config
-    this.config()
   }
 
   async configureDB() {
@@ -25,6 +23,8 @@ class Server {
   }
 
   middlewares() {
+    // CORS configuration
+    this.app.use(cors())
     // URL encoded for POST requests with form data
     this.app.use(express.urlencoded({ extended: true }))
     // JSON parser for API requests
@@ -37,10 +37,6 @@ class Server {
     // Auth routes
     this.app.use('/api/auth', authRoutes)
     this.app.use('/api/events', eventRoutes)
-  }
-
-  config() {
-    this.app.use(cors())
   }
 
   listen() {
