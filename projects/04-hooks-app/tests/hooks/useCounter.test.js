@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { renderHook, act } from '@testing-library/react'
+import { act, renderHook } from '@testing-library/react'
 import { useCounter } from '../../src/hooks/useCounter'
 
 describe('Test on useCounter', () => {
@@ -22,6 +22,9 @@ describe('Test on useCounter', () => {
     const { result } = renderHook(() => useCounter(100))
     const { increment } = result.current
 
+    /* Cuando queremos ejecutar funciones que son expuestas por un custom 
+    hook, estas funciones deben de ejecutarse dentro del callback de 
+    un act, el cual nos va a permitir ejecutar estas funciones */
     act(() => {
       increment()
       increment(2)
@@ -29,7 +32,7 @@ describe('Test on useCounter', () => {
 
     expect(result.current.counter).toBe(103)
   })
-  
+
   test('Should decrement the counter', () => {
     const { result } = renderHook(() => useCounter(100))
     const { decrement } = result.current
@@ -41,7 +44,7 @@ describe('Test on useCounter', () => {
 
     expect(result.current.counter).toBe(97)
   })
-  
+
   test('Should reset the counter', () => {
     const { result } = renderHook(() => useCounter(100))
     const { increment, reset } = result.current

@@ -5,20 +5,28 @@ import { MultipleCustomHooks } from '../../src/03-examples/MultipleCustomHooks'
 import { useCounter } from '../../src/hooks/useCounter'
 import { useFetch } from '../../src/hooks/useFetch'
 
+/* Hacemos mock de nuestros custom hooks */
 jest.mock('../../src/hooks/useCounter')
 jest.mock('../../src/hooks/useFetch')
 
 describe('Test on <MultipleCustomHooks />', () => {
+  /* Creamos un mock de una función para usarla en todos los tests */
   const mockIncrement = jest.fn()
 
+  /* Hacemos un mock del hook useCounter para usar el valor mockeado
+  en todos los tests */
   useCounter.mockReturnValue({
     counter: 1,
     increment: mockIncrement
   })
 
+  /* Antes de cada prueba limpiamos los mocks, para que estos regresen a 
+  su valor original que definimos previamente */
   beforeEach(() => {
     jest.clearAllMocks()
   })
+
+  /* También existen las funciones beforeAll, afterEach, afterAll */
 
   test('Should show the default component', () => {
     useFetch.mockReturnValue({

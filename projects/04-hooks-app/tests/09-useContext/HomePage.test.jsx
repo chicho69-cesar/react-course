@@ -10,6 +10,9 @@ describe('Test on <HomePage />', () => {
   }
 
   test('Should show the component without user', () => {
+    /* Si nuestra aplicación necesita de un contexto para funcionar, ya que
+    requiere el valor del estado del contexto, podemos envolver el 
+    elemento que queremos probar dentro de dicho contexto */
     render(
       <UserContext.Provider value={{ user: null }}>
         <HomePage />
@@ -19,7 +22,7 @@ describe('Test on <HomePage />', () => {
     const preTag = screen.getByLabelText('pre')
     expect(preTag.innerHTML).toBe('null')
   })
-  
+
   test('Should show the component with user', () => {
     render(
       <UserContext.Provider value={{ user }}>
