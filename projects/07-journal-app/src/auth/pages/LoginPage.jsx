@@ -45,6 +45,7 @@ export const LoginPage = () => {
               placeholder='correo@google.com'
               fullWidth
               name='email'
+              aria-label='email'
               value={email}
               onChange={onInputChange}
             />
@@ -81,7 +82,9 @@ export const LoginPage = () => {
                 disabled={isAuthenticating}
                 type='submit'
                 variant='contained'
-                fullWidth>
+                fullWidth
+                aria-label='login-btn'
+              >
                 Login
               </Button>
             </Grid>
