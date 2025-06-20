@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-import heroes from '../../src/js/data/heroes.js'
 import { getHeroById, getHeroesByOwner } from '../../src/js/08-import-and-export.js'
+import heroes from '../../src/js/data/heroes.js'
 
 describe('Test on 08 import and export', () => {
   test('getHeroById should return a hero by ID', () => {
@@ -14,6 +14,9 @@ describe('Test on 08 import and export', () => {
     const id = 100
     const hero = getHeroById(id)
 
+    /* La .aserción .toBeFalsy y la .toBeTruthy nos ayudan a ver si un valor
+    es falsy o truthy, es decir un valor falsy puede ser false, 0, null, 
+    undefined, etc. mientras que truthy son valores que si están definidos */
     expect(hero).toBeFalsy()
   })
 
@@ -31,7 +34,7 @@ describe('Test on 08 import and export', () => {
 
     expect(heroesByOwner).toEqual(heroes.filter(hero => hero.owner === owner))
   })
-  
+
   test('getHeroesByOwner should return heroes of Marvel', () => {
     const owner = 'Marvel'
     const heroesByOwner = getHeroesByOwner(owner)

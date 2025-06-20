@@ -7,12 +7,17 @@ describe('Test on 09 promises', () => {
 
     getHeroByIdAsync(id)
       .then((hero) => {
+        /* Podemos hacer aserciones dentro de una promesa, para comparar
+        el resultado de dicha promesa. */
         expect(hero).toEqual({
           id: 1,
           name: 'Batman',
           owner: 'DC'
         })
 
+        /* Si usamos aserciones dentro de una promesa que se resuelve, debemos
+        de ejecutar la función done para indicarle al test que ya terminamos
+        de hacer dichas pruebas. */
         done()
       })
   })

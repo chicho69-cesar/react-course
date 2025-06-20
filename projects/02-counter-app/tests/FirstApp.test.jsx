@@ -25,6 +25,7 @@ describe('Test on <FirstApp />', () => {
     )
 
     expect(getByText(title)).toBeTruthy()
+    /* Extraemos el elemento del DOM en base a su data-testid */
     expect(getByTestId('test-title').innerHTML).toContain(title)
   })
 

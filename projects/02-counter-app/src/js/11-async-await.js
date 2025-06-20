@@ -11,6 +11,6 @@ export const getImage = async () => {
 
     document.body.append(img)
   } catch {
-    return 'No se encontro la imagen'
+    return 'No se encontró la imagen'
   }
 }
