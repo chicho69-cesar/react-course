@@ -1,16 +1,16 @@
-import { useLocation, useNavigate } from 'react-router'
 import queryString from 'query-string'
 import { useMemo } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 
-import { getHeroesByName } from '../helpers'
 import { useForm } from '../../hooks/useForm'
 import { HeroCard } from '../components'
+import { getHeroesByName } from '../helpers'
 
 export const SearchPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const { q = ''} = queryString.parse(location.search)
+  const { q = '' } = queryString.parse(location.search)
   const heroes = useMemo(() => getHeroesByName(q), [q])
 
   const showSearch = (q.length === 0)
@@ -58,7 +58,7 @@ export const SearchPage = () => {
           <hr />
 
           <div
-            className="alert alert-primary animate__animated animate__fadeIn" 
+            className="alert alert-primary animate__animated animate__fadeIn"
             style={{ display: showSearch ? '' : 'none' }}
           >
             Search a hero
@@ -66,10 +66,10 @@ export const SearchPage = () => {
 
           <div
             aria-label="alert-danger"
-            className="alert alert-danger animate__animated animate__fadeIn" 
+            className="alert alert-danger animate__animated animate__fadeIn"
             style={{ display: showError ? '' : 'none' }}
           >
-            No hero with <b>{ q }</b>
+            No hero with <b>{q}</b>
           </div>
 
           {heroes.map((hero) => (

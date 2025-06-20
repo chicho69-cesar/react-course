@@ -19,7 +19,7 @@ export const LoginPage = () => {
 
   return (
     <div className="container mt-5">
-      <h1>Login</h1>
+      <h1 aria-label='title'>Login</h1>
       <hr />
 
       <button
