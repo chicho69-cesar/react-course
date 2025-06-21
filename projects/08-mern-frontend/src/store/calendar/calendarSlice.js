@@ -49,6 +49,7 @@ export const calendarSlice = createSlice({
       state.isLoadingEvents = true
       state.events = []
       state.activeEvent = null
+      state.isForUpdate = false
     }
   }
 })

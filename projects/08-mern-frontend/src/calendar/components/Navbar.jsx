@@ -5,7 +5,7 @@ export const Navbar = () => {
 
   return (
     <div className='navbar navbar-dark bg-dark mb-4 px-4'>
-      <span className='navbar-brand'>
+      <span className='navbar-brand' aria-label='navbar-user'>
         <i className='fas fa-calendar-alt'></i>
         &nbsp;
         {user.name}
