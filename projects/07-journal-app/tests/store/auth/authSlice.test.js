@@ -4,6 +4,9 @@ import { authenticatedState, demoUser, initialState, noAuthenticatedState } from
 
 describe('Tests in authSlice', () => {
   test('Should return the initial state', () => {
+    /* Obtenemos el state actual del authSlice, mandando como parámetros el valor
+    del estado que queremos que tenga y la acción que queremos ejecutar para cambiar
+    dicho estado */
     const state = authSlice.reducer(initialState, {})
 
     expect(state).toEqual(initialState)

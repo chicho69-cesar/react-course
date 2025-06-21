@@ -9,6 +9,7 @@ import { authSlice } from '../../src/store'
 import { initialState, notAuthenticatedState } from '../fixtures/authStates'
 import { testUserCredentials } from '../fixtures/testUser'
 
+/* Creamos un mock para crear una store con un cierto valor del estado */
 const getMockStore = (initialState) => {
   return configureStore({
     reducer: {
@@ -26,8 +27,11 @@ describe('Tests on useAuthStore', () => {
   })
 
   test('Should return the default values', () => {
+    /* Creamos nuestra store mockeada */
     const mockStore = getMockStore({ ...initialState })
 
+    /* Hacemos un render del hook useAuthStore con un wrapper para envolver el render
+    con el provider de redux con la store mockeada */
     const { result } = renderHook(() => useAuthStore(), {
       wrapper: ({ children }) => (
         <Provider store={mockStore}>
@@ -36,6 +40,7 @@ describe('Tests on useAuthStore', () => {
       )
     })
 
+    /* Comprobamos que el resultado del hook es el esperado */
     expect(result.current).toEqual({
       status: 'checking',
       user: {},
@@ -58,6 +63,7 @@ describe('Tests on useAuthStore', () => {
       )
     })
 
+    /* Ejecutamos la función startLogin del hook con las credenciales */
     await act(async () => {
       await result.current.startLogin(testUserCredentials)
     })
@@ -84,6 +90,7 @@ describe('Tests on useAuthStore', () => {
       )
     })
 
+    /* Ejecutamos la función startLogin del hook con las credenciales incorrectas */
     await act(async () => {
       await result.current.startLogin({
         email: 'failed@google.com',
@@ -99,6 +106,7 @@ describe('Tests on useAuthStore', () => {
       errorMessage: 'Credenciales incorrectas'
     })
 
+    /* Nos esperamos a que el errorMessage cambie por que cambia con una callback */
     await waitFor(() => {
       expect(result.current.errorMessage).toBeUndefined()
     })
@@ -116,6 +124,7 @@ describe('Tests on useAuthStore', () => {
       )
     })
 
+    /* Mockeamos la llamada a la API para crear un usuario */
     const spy = jest.spyOn(calendarApi, 'post').mockReturnValue({
       data: {
         ok: true,
@@ -125,6 +134,7 @@ describe('Tests on useAuthStore', () => {
       }
     })
 
+    /* Ejecutamos la función startRegister del hook con los datos del nuevo usuario */
     await act(async () => {
       await result.current.startRegister(newUser)
     })
@@ -137,6 +147,7 @@ describe('Tests on useAuthStore', () => {
       errorMessage: undefined
     })
 
+    /* Hacemos un restore del spy de la llamada a la API */
     spy.mockRestore()
   })
 

@@ -20,6 +20,7 @@ describe('Tests on auth thunks', () => {
   })
 
   test('Should startGoogleSignIn call checkingCredentials and login successfully', async () => {
+    /* Hacemos mock del valor que nos regresa la función signInWithGoogle */
     const loginData = { ok: true, ...demoUser }
     await signInWithGoogle.mockResolvedValue(loginData)
 

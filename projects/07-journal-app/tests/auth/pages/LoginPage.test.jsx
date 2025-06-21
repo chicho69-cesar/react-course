@@ -11,6 +11,7 @@ import { noAuthenticatedState } from '../../fixtures/authFixtures.test'
 const mockStartGoogleSignIn = jest.fn()
 const mockStartLoginWithEmailPassword = jest.fn()
 
+/* Hacemos mock de las funciones thunks para manejar código asíncrono en el estado */
 jest.mock('../../../src/store/auth/thunks', () => ({
   startGoogleSignIn: () => mockStartGoogleSignIn,
   startLoginWithEmailPassword: ({ email, password }) => {
@@ -18,11 +19,14 @@ jest.mock('../../../src/store/auth/thunks', () => ({
   }
 }))
 
+/* Hacemos un mock del hook useDispatch de react-redux */
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: () => (fn) => fn(),
 }))
 
+/* Creamos un store ficticio para hacer pruebas sobre y no tener que utilizar
+el store real */
 const storeForTesting = configureStore({
   reducer: {
     auth: authSlice.reducer
@@ -38,6 +42,8 @@ describe('Tests on <LoginPage />', () => {
   })
 
   test('Should show the component correctly', () => {
+    /* Al renderizar nuestro componente debemos envolverlo con el provider de redux
+    mandando le la store ficticia */
     render(
       <Provider store={storeForTesting}>
         <MemoryRouter>
