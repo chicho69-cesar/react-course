@@ -17,7 +17,7 @@ export const authenticatedState = {
 }
 
 export const noAuthenticatedState = {
-  status: 'checking',
+  status: 'not-authenticated',
   uid: null,
   email: null,
   displayName: null,
