@@ -1,1 +1,5 @@
-console.log('WebSocket server is running...');
+import 'dotenv/config';
+import { Server } from './server.js';
+
+const server = new Server();
+server.execute();
