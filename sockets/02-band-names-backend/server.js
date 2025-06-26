@@ -1,7 +1,8 @@
-import express from 'express';
 import http from 'node:http';
 import path from 'node:path';
+import express from 'express';
 import { Server } from 'socket.io';
+import cors from 'cors';
 
 import { Sockets } from './sockets.js';
 
@@ -11,11 +12,21 @@ export class ServerApp {
     this.port = process.env.PORT || 3000;
 
     this.server = http.createServer(this.app);
-    this.io = new Server(this.server, {})
+    this.io = new Server(this.server, {
+      cors: {
+        origin: 'http://localhost:5173',
+        methods: ['GET', 'POST'],
+        credentials: true
+      }
+    })
   }
 
   middlewares() {
     this.app.use(express.static(path.join(process.cwd(), 'public')));
+    this.app.use(cors({
+      origin: 'http://localhost:5173',
+      credentials: true
+    }));
   }
 
   configureSockets() {
