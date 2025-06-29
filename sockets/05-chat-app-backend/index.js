@@ -1,1 +1,5 @@
-console.log('Running chat app backend...')
+import 'dotenv/config'
+import { Server } from './server.js'
+
+const server = new Server()
+server.execute()
