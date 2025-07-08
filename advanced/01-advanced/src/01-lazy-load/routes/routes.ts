@@ -13,9 +13,9 @@ interface Route {
   Component: LazyExoticComponent<JSXComponente> | JSXComponente
 }
 
-const Lazy1 = lazy(() => import('../01-lazy-load/pages/LazyPage1'))
-const Lazy2 = lazy(() => import('../01-lazy-load/pages/LazyPage2'))
-const Lazy3 = lazy(() => import('../01-lazy-load/pages/LazyPage3'))
+const Lazy1 = lazy(() => import('../pages/LazyPage1'))
+const Lazy2 = lazy(() => import('../pages/LazyPage2'))
+const Lazy3 = lazy(() => import('../pages/LazyPage3'))
 
 export const routes: Route[] = [
   {
