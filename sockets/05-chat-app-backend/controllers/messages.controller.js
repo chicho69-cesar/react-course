@@ -16,7 +16,7 @@ export class MessagesController {
             { from: messageFrom, to: uid }
           ]
         },
-        order: [['created_at', 'DESC']],
+        order: [['created_at', 'ASC']],
         limit: 30
       })
 

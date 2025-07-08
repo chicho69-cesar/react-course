@@ -9,7 +9,8 @@
   },
   "workspaces": [
     "projects/*",
-    "sockets/*"
+    "sockets/*",
+    "advanced/*"
   ],
   "repository": {
     "type": "git",
