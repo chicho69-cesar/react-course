@@ -7,6 +7,8 @@ import FormikAbstraction from '../pages/FormikAbstraction'
 import FormikBasicPage from '../pages/FormikBasicPage'
 import FormikComponents from '../pages/FormikComponents'
 import FormikYupPage from '../pages/FormikYupPage'
+import AuthFormikPage from '../pages/AuthFormikPage'
+import DynamicForm from '../pages/DynamicForm'
 
 export default function Navigation() {
   return (
@@ -70,6 +72,24 @@ export default function Navigation() {
                   Auth
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink
+                  to='/auth-formik'
+                  className={({ isActive }) => isActive ? 'nav-active' : ''}
+                >
+                  Auth Formik
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to='/dynamic-form'
+                  className={({ isActive }) => isActive ? 'nav-active' : ''}
+                >
+                  Dynamic Form
+                </NavLink>
+              </li>
             </ul>
           </nav>
   
@@ -80,6 +100,8 @@ export default function Navigation() {
             <Route path='/formik-components' element={<FormikComponents />} />
             <Route path='/formik-yup' element={<FormikYupPage />} />
             <Route path='/auth' element={<AuthPage />} />
+            <Route path='/auth-formik' element={<AuthFormikPage />} />
+            <Route path='/dynamic-form' element={<DynamicForm />} />
 
             <Route path='/*' element={<Navigate to='/' replace />} />
           </Routes>
