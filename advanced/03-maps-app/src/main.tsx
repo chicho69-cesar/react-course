@@ -1,9 +1,17 @@
+import './index.css'
+
+import mapboxgl from 'mapbox-gl'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN
+
 import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const rootItem = document.getElementById('root')
+const root = createRoot(rootItem!)
+
+root.render(
   <StrictMode>
     <App />
   </StrictMode>,
