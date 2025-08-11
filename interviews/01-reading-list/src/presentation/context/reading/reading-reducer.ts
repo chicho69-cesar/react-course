@@ -5,6 +5,7 @@ import type { ReadingState } from './reading-provider';
 export type Action =
   | { type: '[READING] - ADD', payload: Book }
   | { type: '[READING] - REMOVE', payload: string }
+  | { type: '[READING] - SYNC', payload: Book[] }
 
 const REDUCER_ACTIONS = {
   ['[READING] - ADD']: (state: ReadingState, action: Action): ReadingState => {
@@ -25,6 +26,17 @@ const REDUCER_ACTIONS = {
   ['[READING] - REMOVE']: (state: ReadingState, action: Action): ReadingState => {
     const newState = {
       reading: state.reading.filter((book) => book.ISBN !== action.payload)
+    }
+
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newState.reading))
+    return newState
+  },
+
+  ['[READING] - SYNC']: (_: ReadingState, action: Action): ReadingState => {
+    const books = action.payload as Book[]
+    
+    const newState = {
+      reading: books
     }
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newState.reading))

@@ -5,7 +5,7 @@ import { getGenres } from '../../../domain/actions/get-genres.action'
 import useFilters from '../../context/filters/use-filters'
 
 export default function Filters() {
-  const { pages, setGenre, setPages, onReset } = useFilters()
+  const { pages, genre, setGenre, setPages, onReset } = useFilters()
   const [genres, setGenres] = useState<string[]>([])
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Filters() {
 
       <div style={{ flex: 1 }}>
         <label>
-          Filtrar por genero
+          Filtrar por genero {`(${genre || 'Todos'})`}
 
           <select name='genre' id='genre-filter' onChange={(e) => setGenre(e.target.value)}>
             <option value=''>
