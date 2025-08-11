@@ -8,6 +8,7 @@
     "commit": "sui-mono commit"
   },
   "workspaces": [
+    "course/*",
     "projects/*",
     "sockets/*",
     "advanced/*"
