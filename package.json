@@ -11,7 +11,8 @@
     "course/*",
     "projects/*",
     "sockets/*",
-    "advanced/*"
+    "advanced/*",
+    "interviews/*"
   ],
   "repository": {
     "type": "git",

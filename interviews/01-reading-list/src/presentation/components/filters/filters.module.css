@@ -1,0 +1,16 @@
+.filters {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reset {
+  padding: 0.35rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #25292e;
+  color: #fefefe;
+  border: none;
+}
