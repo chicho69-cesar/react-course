@@ -1,31 +1,23 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Nest - TesloShop Backend
 
-# Teslo API
+## Development
 
-1. Clonar proyecto
-2. `yarn install`
-3. Clonar el archivo `.env.template` y renombrarlo a `.env`
-4. Cambiar las variables de entorno
-5. Levantar la base de datos
+**1.** Tener corriendo el servicio de Docker (Docker Desktop o Docker Daemon)
+**2.** Clonar el archivo **.env.template** y renombrar la copia a **.env**
+**3.** Levantar los servicios con el comando
 
-```
-docker-compose up -d
+```bash
+docker compose up -d
 ```
 
-6. Levantar:
+**4.** Llenar la base de datos con data temporal: <http://localhost:3000/api/seed>
 
-```
-npm run start:dev
-yarn start:dev
+**5.** Documentación de los endpoints disponibles: <http://localhost:3000/api>
 
-```
+## Extra
 
-7. Ejecutar SEED
+Si desean saber más sobre docker y cómo se construyó esta imagen, esto es parte de mi curso de Nest y Docker:
 
-```
-http://localhost:3000/api/seed
-```
+[Cursos sobre Docker](https://fernando-herrera.com/courses?q=docker)
 
-# Production notes:
+[Imagen en DockerHub](https://hub.docker.com/repository/docker/klerith/flutter-backend-teslo-shop/general)

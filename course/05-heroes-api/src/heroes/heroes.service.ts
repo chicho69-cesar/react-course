@@ -3,12 +3,12 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { heroesData } from 'src/data/heroes.data';
+import { AdvancedSearchDto } from './dto/advande-search.dto';
 import { CreateHeroDto } from './dto/create-hero.dto';
 import { UpdateHeroDto } from './dto/update-hero.dto';
 import { Hero } from './entities/hero.entity';
-import { heroesData } from 'src/data/heroes.data';
-import { PaginationDto } from 'src/common/dto/pagination.dto';
-import { AdvancedSearchDto } from './dto/advande-search.dto';
 
 @Injectable()
 export class HeroesService {
@@ -36,6 +36,7 @@ export class HeroesService {
       heroes = heroes.filter(
         (hero) => hero.category.toLowerCase() === category.toLowerCase(),
       );
+
       heroCount = heroes.length;
     }
 
@@ -71,7 +72,6 @@ export class HeroesService {
 
   remove(id: string) {
     const hero = this.findOne(id);
-
     this.heroes = this.heroes.filter((hero) => hero.id !== id);
 
     return hero;
@@ -80,9 +80,11 @@ export class HeroesService {
   getHeroSummary() {
     const heroes = this.heroes;
     const totalHeroes = heroes.length;
+
     const strongestHero = heroes.reduce((max, hero) =>
       hero.strength > max.strength ? hero : max,
     );
+
     const smartestHero = heroes.reduce((max, hero) =>
       hero.intelligence > max.intelligence ? hero : max,
     );
