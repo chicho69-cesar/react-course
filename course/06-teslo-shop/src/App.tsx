@@ -1,10 +1,23 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { RouterProvider } from "react-router"
+import { Toaster } from "sonner"
+import CheckAuthProvider from "./auth/providers/check-auth-provider"
+import { appRouter } from "./router/app.routes"
+
+const queryClient = new QueryClient()
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-700 text-white grid place-content-center">
-      <h1 className="text-4xl font-bold text-center text-white">
-        Hola Mundo
-      </h1>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Toaster />
+
+      <CheckAuthProvider>
+        <RouterProvider router={appRouter} />
+      </CheckAuthProvider>
+
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 
